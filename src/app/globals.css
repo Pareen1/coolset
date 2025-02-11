@@ -5,6 +5,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary-blue: #80b2ff;
+  --secondary-blue: #2f43ff;
+  --accent-blue: #08094f;
 }
 
 @media (prefers-color-scheme: light) {
