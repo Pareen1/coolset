@@ -10,9 +10,16 @@ const Table: React.FC<TableProps> = ({ data }) => {
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const totalItems = data.length;
 
+  const calculatePricePer100g = (price: number, weight: number) => {
+    return (price / weight) * 0.1;
+  };
+
   const paginatedData = useMemo(() => {
     const startIndex = (currentPage - 1) * rowsPerPage;
-    return data.slice(startIndex, startIndex + rowsPerPage);
+    return data.slice(startIndex, startIndex + rowsPerPage).map((item) => ({
+      ...item,
+      pricePer100g: calculatePricePer100g(item.price, item.weight),
+    }));
   }, [currentPage, rowsPerPage, data]);
 
   return (

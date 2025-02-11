@@ -5,3 +5,7 @@ export interface GroceryItem {
   price: number;
   weight: number;
 }
+
+export interface TableGroceryItem extends GroceryItem {
+  pricePer100g: number;
+}
