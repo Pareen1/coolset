@@ -3,8 +3,8 @@ import { groceryItems } from "@/data/groceryData";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-background p-8">
-      <div className="w-full max-w-4xl">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-background py-8 px-16">
+      <div className="w-full">
         <h1 className="">Today&apos;s Groceries</h1>
         <Table data={groceryItems} />
       </div>
