@@ -3,3 +3,7 @@ import { GroceryItem } from "./grocery";
 export interface TableProps {
   data: GroceryItem[];
 }
+
+export interface TableHeaderProps {
+  data: GroceryItem[];
+}

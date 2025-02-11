@@ -1,4 +1,4 @@
-import Table from "@/components/Table";
+import Table from "@/components/table/Table";
 import { groceryItems } from "@/data/groceryData";
 
 export default function Home() {
