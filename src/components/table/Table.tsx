@@ -4,8 +4,8 @@ import React, { useMemo, useState } from "react";
 import TableHeader from "./TableHeader";
 import TableBody from "./TableBody";
 import TableFooter from "./TableFooter";
-import { MultiSelect } from "react-multi-select-component";
 import { SectionOption } from "@/types/sectionOption";
+import StyledMultiSelect from "../controls/StyledMultiSelect";
 
 const Table: React.FC<TableProps> = ({ data, tableTitle }) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -57,12 +57,10 @@ const Table: React.FC<TableProps> = ({ data, tableTitle }) => {
     <div>
       <div className="flex justify-between items-center">
         <h1 className="font-medium text-xl">{tableTitle}</h1>
-        <MultiSelect
-          options={sectionNames}
-          value={selectedSections}
-          onChange={setSelectedSections}
-          labelledBy={"Filter by Section"}
-          className="w-1/4 z-200"
+        <StyledMultiSelect
+          sectionNames={sectionNames}
+          selectedSections={selectedSections}
+          setSelectedSections={setSelectedSections}
         />
       </div>
       <table className="w-full my-3">
