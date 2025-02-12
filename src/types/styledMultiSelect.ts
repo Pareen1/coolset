@@ -1,7 +1,7 @@
-import { SectionOption } from "./sectionOption";
+import { SectionOptionProps } from "./sectionOption";
 
 export interface StyledMultiSelectProps {
-  sectionNames: SectionOption[];
-  selectedSections: SectionOption[];
-  setSelectedSections: (selected: SectionOption[]) => void;
+  sectionNames: SectionOptionProps[];
+  selectedSections: SectionOptionProps[];
+  setSelectedSections: (selected: SectionOptionProps[]) => void;
 }

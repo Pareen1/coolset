@@ -1,4 +1,4 @@
-export interface SectionOption {
+export interface SectionOptionProps {
   label: string;
   value: string;
 }

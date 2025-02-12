@@ -4,14 +4,16 @@ import React, { useMemo, useState } from "react";
 import TableHeader from "./TableHeader";
 import TableBody from "./TableBody";
 import TableFooter from "./TableFooter";
-import { SectionOption } from "@/types/sectionOption";
+import { SectionOptionProps } from "@/types/sectionOption";
 import StyledMultiSelect from "../controls/StyledMultiSelect";
 
 const Table: React.FC<TableProps> = ({ data, tableTitle }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [sortDirection, setSortDirection] = useState<"asc" | "des">("asc");
-  const [selectedSections, setSelectedSections] = useState<SectionOption[]>([]);
+  const [selectedSections, setSelectedSections] = useState<
+    SectionOptionProps[]
+  >([]);
   const totalItems = data.length;
 
   const calculatePricePer100g = (price: number, weight: number) => {

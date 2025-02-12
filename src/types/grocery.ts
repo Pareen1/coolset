@@ -1,4 +1,4 @@
-export interface GroceryItem {
+export interface GroceryItemProps {
   id: number;
   name: string;
   section: string;
@@ -6,6 +6,6 @@ export interface GroceryItem {
   weight: number;
 }
 
-export interface TableGroceryItem extends GroceryItem {
+export interface TableGroceryItemProps extends GroceryItemProps {
   pricePer100g: number;
 }

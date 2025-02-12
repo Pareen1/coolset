@@ -1,12 +1,12 @@
-import { GroceryItem, TableGroceryItem } from "./grocery";
+import { GroceryItemProps, TableGroceryItemProps } from "./grocery";
 
 export interface TableProps {
-  data: GroceryItem[];
+  data: GroceryItemProps[];
   tableTitle: string;
 }
 
 export interface TableBodyProps {
-  data: TableGroceryItem[];
+  data: TableGroceryItemProps[];
 }
 
 export interface TableFooterProps {
