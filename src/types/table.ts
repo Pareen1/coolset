@@ -15,3 +15,8 @@ export interface TableFooterProps {
   setCurrentPage: (page: number) => void;
   setRowsPerPage: (rows: number) => void;
 }
+
+export interface TableHeaderProps {
+  handleSort: () => void;
+  sortDirection: "asc" | "des";
+}
