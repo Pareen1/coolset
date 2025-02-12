@@ -9,7 +9,10 @@ const StyledMultiSelect = ({
   setSelectedSections,
 }: StyledMultiSelectProps) => {
   return (
-    <div className="w-1/4 z-10 shadow-sm rounded-lg border border-gray-100">
+    <div
+      className="w-full md:w-1/4 z-10 shadow-sm rounded-lg border border-gray-100"
+      aria-label="Filter grocery items by section"
+    >
       <MultiSelect
         options={sectionNames}
         value={selectedSections}

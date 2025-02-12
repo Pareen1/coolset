@@ -55,7 +55,7 @@ const Table: React.FC<TableProps> = ({ data, tableTitle }) => {
 
   return (
     <div>
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center gap-2">
         <h1 className="font-medium text-xl">{tableTitle}</h1>
         <StyledMultiSelect
           sectionNames={sectionNames}

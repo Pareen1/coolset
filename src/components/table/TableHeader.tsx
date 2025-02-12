@@ -23,6 +23,15 @@ const TableHeader: React.FC<TableHeaderProps> = ({
               header.sortable ? "cursor-pointer" : ""
             }`}
             onClick={header.sortable ? handleSort : undefined}
+            role={header.sortable ? "button" : undefined}
+            tabIndex={header.sortable ? 0 : undefined}
+            aria-label={
+              header.sortable
+                ? `Sort by ${header.name}, currently sorted ${
+                    sortDirection === "asc" ? "ascending" : "descending"
+                  }`
+                : undefined
+            }
           >
             {header.sortable ? (
               <div className="flex items-center gap-2 hover">
