@@ -21,3 +21,7 @@ export interface TableHeaderProps {
   handleSort: () => void;
   sortDirection: "asc" | "des";
 }
+
+export interface TableRowProps {
+  item: TableGroceryItemProps;
+}

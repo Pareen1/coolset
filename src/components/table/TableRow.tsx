@@ -1,9 +1,5 @@
-import { TableGroceryItem } from "@/types/grocery";
 import TableCell from "./TableCell";
-
-interface TableRowProps {
-  item: TableGroceryItem;
-}
+import { TableRowProps } from "@/types/table";
 
 const TableRow: React.FC<TableRowProps> = ({ item }) => {
   return (
