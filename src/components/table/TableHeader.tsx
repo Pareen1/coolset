@@ -14,7 +14,7 @@ const TableHeader: React.FC<TableHeaderProps> = ({
   sortDirection,
 }) => {
   return (
-    <thead className="bg-white border border-gray-200 border-b sticky top-0 z-10">
+    <thead className="bg-white border border-gray-200 border-b sticky top-0">
       <tr className="text-left">
         {headers.map((header) => (
           <th

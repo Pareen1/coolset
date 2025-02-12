@@ -5,8 +5,7 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center  min-h-screen bg-background p-16">
       <div className="w-full">
-        <h1 className="font-medium text-xl">Today&apos;s Groceries</h1>
-        <Table data={groceryItems} />
+        <Table tableTitle={`Today's Groceries`} data={groceryItems} />
       </div>
     </div>
   );

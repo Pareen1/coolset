@@ -4,23 +4,39 @@ import React, { useMemo, useState } from "react";
 import TableHeader from "./TableHeader";
 import TableBody from "./TableBody";
 import TableFooter from "./TableFooter";
+import { MultiSelect } from "react-multi-select-component";
+import { SectionOption } from "@/types/sectionOption";
 
-const Table: React.FC<TableProps> = ({ data }) => {
+const Table: React.FC<TableProps> = ({ data, tableTitle }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [sortDirection, setSortDirection] = useState<"asc" | "des">("asc");
+  const [selectedSections, setSelectedSections] = useState<SectionOption[]>([]);
   const totalItems = data.length;
 
   const calculatePricePer100g = (price: number, weight: number) => {
     return (price / weight) * 0.1;
   };
 
+  const sectionNames = useMemo(() => {
+    const sections = data.map((item) => item.section);
+    const sectionNames = Array.from(new Set(sections));
+    return sectionNames.map((section) => ({ label: section, value: section }));
+  }, [data]);
+
   const handleSort = () => {
     setSortDirection((current) => (current === "asc" ? "des" : "asc"));
   };
 
   const sortedAndPaginatedData = useMemo(() => {
-    const calculatedData = data.map((item) => ({
+    let filteredData = data;
+    if (selectedSections.length > 0) {
+      filteredData = data.filter((item) =>
+        selectedSections.some((section) => section.value === item.section)
+      );
+    }
+
+    const calculatedData = filteredData.map((item) => ({
       ...item,
       pricePer100g: calculatePricePer100g(item.price, item.weight),
     }));
@@ -35,10 +51,20 @@ const Table: React.FC<TableProps> = ({ data }) => {
 
     const startIndex = (currentPage - 1) * rowsPerPage;
     return calculatedData.slice(startIndex, startIndex + rowsPerPage);
-  }, [currentPage, rowsPerPage, data, sortDirection]);
+  }, [currentPage, rowsPerPage, data, sortDirection, selectedSections]);
 
   return (
     <div>
+      <div className="flex justify-between items-center">
+        <h1 className="font-medium text-xl">{tableTitle}</h1>
+        <MultiSelect
+          options={sectionNames}
+          value={selectedSections}
+          onChange={setSelectedSections}
+          labelledBy={"Filter by Section"}
+          className="w-1/4 z-200"
+        />
+      </div>
       <table className="w-full my-3">
         <TableHeader handleSort={handleSort} sortDirection={sortDirection} />
         <TableBody data={sortedAndPaginatedData} />
